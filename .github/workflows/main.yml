@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        model: [ "G973F" ]
+        model: [ "G975F" ]
 
     steps:
     - uses: actions/checkout@v2
@@ -43,9 +43,9 @@ jobs:
       run: |
         ./cruelbuild config                    \
                      model=${{ matrix.model }} \
-                     name="CRUEL-v3.8"         \
-                     toolchain=$TOOLCHAIN      \
-                     +magisk                   \
+                     name="Blu-3.8"            \
+                     toolchain=arm             \
+                     +magisk 21                \
                      +nohardening              \
                      +ttl                      \
                      +wireguard                \
@@ -53,7 +53,10 @@ jobs:
                      +sdfat                    \
                      +ntfs                     \
                      +morosound                \
-                     +boeffla_wl_blocker       \
+                     +nodebug                  \
+                     +noksm                    \
+                     +noatime                  \
+                     +boeffla_wl_blocker       
         2>&1 | tee config.info
     - name: Kernel Build
       run: ./cruelbuild :build
