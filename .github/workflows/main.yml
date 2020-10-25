@@ -45,7 +45,7 @@ jobs:
                      model=${{ matrix.model }} \
                      name="Blu-3.8"            \
                      toolchain=arm             \
-                     +magisk=v21               \
+                     +magisk=canary            \
                      +nohardening              \
                      +ttl                      \
                      +wireguard                \
