@@ -3,7 +3,7 @@ name: Build
 on: [push]
 
 env:
-  TOOLCHAIN: arm
+  TOOLCHAIN: cruel
 
 jobs:
   build:
@@ -44,8 +44,8 @@ jobs:
         ./cruelbuild config                    \
                      model=${{ matrix.model }} \
                      name="Blu-3.8"            \
-                     toolchain=arm             \
-                     +magisk=canary            \
+                     toolchain=cruel           \
+                     +magisk                   \
                      +nohardening              \
                      +ttl                      \
                      +wireguard                \
@@ -53,10 +53,20 @@ jobs:
                      +sdfat                    \
                      +ntfs                     \
                      +morosound                \
+                     +fake_config              \
+                     +io_noop                  \
+                     +noaudit                  \
+                     +nomodules                \
                      +nodebug                  \
+                     -nozram                   \
                      +noksm                    \
                      +noatime                  \
-                     +boeffla_wl_blocker       
+                     +performance              \
+                     +sched_powersave          \
+                     +sched_performance        \
+                     +simple_lmk               \
+                     +usb_serial               \
+                     +boeffla_wl_blocker       \
         2>&1 | tee config.info
     - name: Kernel Build
       run: ./cruelbuild :build
