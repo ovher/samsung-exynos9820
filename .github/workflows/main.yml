@@ -3,7 +3,7 @@ name: Build
 on: [push]
 
 env:
-  TOOLCHAIN: default
+  TOOLCHAIN: cruel
   INSTALLER: yes
 
 jobs:
@@ -35,8 +35,16 @@ jobs:
                        +cifs                     \
                        +sdfat                    \
                        +ntfs                     \
+                       +nodebug                  \
                        +force_dex_wqhd           \
+                       +noaudit                  \
                        +morosound                \
+                       +noksm                    \
+                       +nomodules                \
+                       +usb_serial               \
+                       +morosound                \
+                       +fp_boost                 \
+                       +fake_config              \                              
                        +boeffla_wl_blocker       \
           2>&1 | tee config.info
 
