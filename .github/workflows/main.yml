@@ -26,18 +26,23 @@ jobs:
           set -e -o pipefail
           ./cruelbuild config                    \
                        model=${{ matrix.model }} \
-                       name="Cruel-v4.2"         \
-                       toolchain=$TOOLCHAIN      \
+                       name="Quennorra-Alpha1.0" \
+                       toolchain=cruel           \
                        +magisk                   \
                        +nohardening              \
                        +ttl                      \
-                       +wireguard                \
                        +cifs                     \
                        +sdfat                    \
                        +ntfs                     \
-                       +force_dex_wqhd           \
                        +morosound                \
                        +boeffla_wl_blocker       \
+                       +nodebug                  \
+                       +noaudit                  \
+                       +noksm                    \
+                       +fake_config              \
+                       +nomodules                \
+                       +fp_boost                 \
+                       +dtb                      \
           2>&1 | tee config.info
 
       - name: Install gcc-aarch64-linux-gnu
